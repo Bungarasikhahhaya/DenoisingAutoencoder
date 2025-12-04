@@ -44,6 +44,7 @@ Secara default, route frontend `/api/denoise` di `frontend/app/api/denoise/route
 - Model dan kode mengikuti lisensi tugas/penelitian yang kamu gunakan.
 - Ilustrasi 3D pada landing page diambil dari sumber bebas (Unsplash/IconScout/Icons8). Cantumkan kredit sesuai lisensi aset yang dipakai.
 
-
+Link collab untuk Training:
+https://colab.research.google.com/drive/1fI8DbDtjAGXTbbZHLj74x8eKDIAAf24H?usp=sharing
 
 
