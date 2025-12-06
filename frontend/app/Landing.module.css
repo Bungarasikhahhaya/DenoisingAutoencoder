@@ -229,14 +229,14 @@
 /* header dengan text gradient */
 .teamHeader {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 /* garis pemisah di bawah judul */
 .teamDivider {
-  width: 1120px;                  /* panjang garis */
-  height: 3px;                   /* tebal garis */
-  margin: 20px auto 0 auto;      /* jarak dari tulisan dan center */
+  width: 1120px;
+  height: 3px;
+  margin: 20px auto 0 auto;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
@@ -261,6 +261,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  margin-top: 20px;
 }
 
 .teamHeadingTop {
@@ -275,24 +276,35 @@
 .teamList {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 16px;
 }
 
-/* base card: full screen section */
+/* base card: full screen section + ANIMASI SCROLL */
 .teamCard {
   min-height: 100vh;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 48px;
   align-items: center;
+
+  /* keadaan awal: sembunyi + turun */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* foto TANPA rectangle, digeser dari tepi */
+/* saat masuk viewport (JS akan tambah class ini) */
+.teamCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* foto, digeser dari tepi */
 .teamPhotoWrapper {
   position: relative;
   width: auto;
   height: auto;
-  margin-left: 100px; /* geser foto dari tepi kiri */
+  margin-left: 100px;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -301,7 +313,7 @@
 
 /* ukuran foto langsung di img */
 .teamPhoto {
-  width: 260px;
+  width: 340px;
   height: auto;
   object-fit: cover;
   display: block;
@@ -313,7 +325,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 100px; /* jarak teks dari foto (card ganjil) */
+  margin-left: 100px;
 }
 
 .teamName {
@@ -346,7 +358,7 @@
 .teamCardEven .teamPhotoWrapper {
   order: 2;
   margin-left: 0;
-  margin-right: 60px; /* geser foto dari tepi kanan */
+  margin-right: 60px;
 }
 
 .teamCardEven .teamInfo {
@@ -354,7 +366,7 @@
   text-align: right;
   align-items: flex-end;
   margin-left: 0;
-  margin-right: 60px; /* jarak teks dari foto (card genap) */
+  margin-right: 60px;
 }
 
 /* responsif */
@@ -395,7 +407,7 @@
   }
 
   .teamPhoto {
-    width: 220px;
+    width: 340px;
   }
 
   .teamRole {

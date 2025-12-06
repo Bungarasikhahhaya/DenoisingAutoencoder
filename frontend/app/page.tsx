@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./Landing.module.css";
 
@@ -33,6 +33,33 @@ const members = [
 
 export default function LandingPage() {
   const [isHovered, setIsHovered] = useState(false);
+
+  // refs untuk setiap card team (pakai HTMLElement, karena elemen-nya <article>)
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!cardRefs.current || cardRefs.current.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible); // tambahkan class visible
+            obs.unobserve(entry.target); // animasi sekali saja
+          }
+        });
+      },
+      {
+        threshold: 0.2, // 20% card masuk viewport
+      }
+    );
+
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className={styles.main}>
@@ -100,38 +127,41 @@ export default function LandingPage() {
       {/* OUR TEAM section */}
       <section className={styles.teamSection}>
         <header className={styles.teamHeader}>
-          <h2 className={styles.teamHeadingTop}>OUR TEAM</h2>
-          <h3 className={styles.teamHeadingBottom}>AMAZING</h3>
+          <h2 className={styles.teamHeadingTop}>OUR OUTSTANDING</h2>
+          <h3 className={styles.teamHeadingBottom}>TEAM</h3>
           <div className={styles.teamDivider} />
         </header>
-        
+
         <div className={styles.teamList}>
-  {members.map((m, index) => (
-    <article
-      key={m.name}
-      className={
-        index % 2 === 0
-          ? `${styles.teamCard} ${styles.teamCardEven}` // genap: foto kanan
-          : styles.teamCard                               // ganjil: foto kiri
-      }
-    >
-      <div className={styles.teamPhotoWrapper}>
-        <Image
-          src={m.photo}
-          alt={m.name}
-          width={260}
-          height={360}
-          className={styles.teamPhoto}
-        />
-      </div>
-      <div className={styles.teamInfo}>
-        <h4 className={styles.teamName}>{m.name}</h4>
-        <h4 className={styles.teamNpm}>NPM: {m.npm}</h4>
-        <p className={styles.teamRole}>{m.role}</p>
-      </div>
-    </article>
-  ))}
-</div>
+          {members.map((m, index) => (
+            <article
+              key={m.name}
+              ref={(el: HTMLElement | null) => {
+                cardRefs.current[index] = el;
+              }}
+              className={
+                index % 2 === 0
+                  ? `${styles.teamCard} ${styles.teamCardEven}`
+                  : styles.teamCard
+              }
+            >
+              <div className={styles.teamPhotoWrapper}>
+                <Image
+                  src={m.photo}
+                  alt={m.name}
+                  width={340}
+                  height={420}
+                  className={styles.teamPhoto}
+                />
+              </div>
+              <div className={styles.teamInfo}>
+                <h4 className={styles.teamName}>{m.name}</h4>
+                <h4 className={styles.teamNpm}>NPM: {m.npm}</h4>
+                <p className={styles.teamRole}>{m.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );
