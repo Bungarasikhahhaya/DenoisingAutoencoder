@@ -7,26 +7,26 @@ import styles from "./Landing.module.css";
 const members = [
   {
     name: "IRFAN SYAHPUTRA",
-    role: "Bertanggung jawab sebagai blaablablabla",
+    role: "Bertanggung jawab sebagai pengembang backend dan infrastruktur sistem, mulai dari perancangan API untuk proses denoising wajah, integrasi model autoencoder ke dalam layanan server, hingga pengaturan lingkungan eksekusi dan deployment aplikasi.",
     npm: "2308107010030",
     photo: "/team/irfan.png",
   },
   {
     name: "KHAIRUN NISA",
     npm: "230810701001O",
-    role: "Bertanggung jawab sebagai blaablablabla",
+    role: "peneliti dan pengembang model autoencoder, mencakup studi literatur, perancangan arsitektur jaringan, pelatihan model pada dataset wajah ber‑noise, serta analisis performa hasil denoising.",
     photo: "/team/nicun.png",
   },
   {
     name: "ANISA RAMAHDANI",
     npm: "2308107010008",
-    role: "Bertanggung jawab sebagai blaablablabla",
+    role: "Bertanggung jawab sebagai pengelola data, penguji sistem, dan penulis dokumentasi, meliputi penyusunan dan pengelolaan dataset wajah, pengujian kualitas hasil denoising secara end‑to‑end, serta penyusunan README dan laporan proyek yang menjelaskan cara instalasi, penggunaan, dan ringkasan hasil penelitian.",
     photo: "/team/nisa.png",
   },
   {
     name: "BUNGA RASIKHAH HAYA",
     npm: "2308107010010",
-    role: "Bertanggung jawab sebagai blaablablabla",
+    role: "Bertanggung jawab sebagai pengembang frontend dan perancang antarmuka pengguna, fokus pada pembuatan halaman landing dan halaman denoising di Next.js, pengaturan tampilan before–after citra, serta perancangan pengalaman pengguna yang responsif dan konsisten dengan tema visual sistem.",
     photo: "/team/bunga.png",
   },
 ];
