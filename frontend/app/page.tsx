@@ -20,7 +20,7 @@ const members = [
   {
     name: "ANISA RAMAHDANI",
     npm: "2308107010008",
-    role: "Bertanggung jawab sebagai pengelola data, penguji sistem, dan penulis dokumentasi, meliputi penyusunan dan pengelolaan dataset wajah, pengujian kualitas hasil denoising secara end‑to‑end, serta penyusunan README dan laporan proyek yang menjelaskan cara instalasi, penggunaan, dan ringkasan hasil penelitian.",
+    role: "Bertanggung jawab sebagai pengelola data, penguji sistem, perancang desain UI/UX, dan penulis dokumentasi, meliputi penyusunan dan pengelolaan dataset wajah, pengujian kualitas hasil denoising secara end‑to‑end, mendesain antarmuka pengguna yang menarik, serta penyusunan laporan proyek yang menjelaskan cara instalasi, penggunaan, dan ringkasan hasil penelitian.",
     photo: "/team/nisa.png",
   },
   {

@@ -155,6 +155,12 @@ export default function DenoisePage() {
                   alt="input-preview"
                   className={styles.inputPreviewImage}
                 />
+                <button
+                  onClick={() => document.getElementById("fileInput")?.click()}
+                  className={styles.changeImageButton}
+                >
+                  🔄 Ganti Foto
+                </button>
               </div>
             )}
           </div>
