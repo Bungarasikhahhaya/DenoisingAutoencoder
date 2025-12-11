@@ -78,70 +78,143 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(31, 19, 55, 0.9);
-  border: 1px solid rgba(84, 0, 135, 0.6);
-  margin-bottom: 18px;
-  font-size: 12px;
-  color: #f9fafb;
+  background: rgba(31, 19, 55, 0.95);
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e7ff;
+  box-shadow: 0 4px 16px rgba(84, 0, 135, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeInDown 0.6s ease-out;
 }
 
 .badgeDot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
-  background: #540087;
-  margin-right: 8px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  margin-right: 9px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .title {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 800;
-  color: #f9fafb;
-  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #ddd6fe 40%, #c4b5fd 70%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+  line-height: 1.2;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 /* hanya judul pakai Bebas Neue */
 .bebasHeading {
   font-family: "Bebas Neue", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .desc {
-  color: #f9fafb;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  max-width: 520px;
+  color: #e0e7ff;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 530px;
+  font-weight: 400;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .subDesc {
-  color: #f9fafb;
+  color: #c7d2fe;
   font-size: 14px;
+  line-height: 1.6;
   margin-bottom: 28px;
+  max-width: 530px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .startButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 30px;
+  padding: 13px 38px;
   border-radius: 999px;
-  background: transparent;
-  border: 1px solid #ffffff;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 40%, #d946ef 75%, #ec4899 100%);
+  border: none;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
   text-decoration: none;
-  box-shadow: none;
-  transform: translateY(0) scale(1);
-  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.startButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s;
+}
+
+.startButton:hover::before {
+  left: 100%;
+}
+
+.startButton:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.6);
 }
 
 .startButtonHovered {
-  border-width: 2px;
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.5), 0 0 20px rgba(236, 72, 153, 0.3);
 }
 
 /* right */
@@ -227,14 +300,15 @@
   z-index: 10;
   max-width: 1100px;
   width: 100%;
-  margin: 56px auto 40px auto;
+  margin: 50px auto 30px auto;
   padding: 0 8px;
 }
 
 /* header dengan text gradient */
 .teamHeader {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 /* garis pemisah di bawah judul */
@@ -281,21 +355,26 @@
 .teamList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 /* base card: full screen section + ANIMASI SCROLL */
 .teamCard {
-  min-height: 100vh;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 48px;
+  gap: 36px;
   align-items: center;
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(31, 19, 55, 0.35);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
   /* keadaan awal: sembunyi + turun */
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
 }
 
 /* saat masuk viewport (JS akan tambah class ini) */
@@ -304,24 +383,41 @@
   transform: translateY(0);
 }
 
+.teamCard:hover {
+  box-shadow: 0 12px 48px rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
 /* foto, digeser dari tepi */
 .teamPhotoWrapper {
   position: relative;
   width: auto;
   height: auto;
-  margin-left: 100px;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
+  margin-left: 28px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.teamPhotoWrapper:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 16px 50px rgba(168, 85, 247, 0.45);
+  border-color: rgba(168, 85, 247, 0.5);
 }
 
 /* ukuran foto langsung di img */
 .teamPhoto {
-  width: 340px;
+  width: 260px;
   height: auto;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.teamPhotoWrapper:hover .teamPhoto {
+  transform: scale(1.06);
 }
 
 /* teks */
@@ -330,31 +426,51 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 100px;
+  margin-left: 28px;
 }
 
 .teamName {
-  margin: 0 0 12px 0;
-  font-size: 22px;
+  margin: 0 0 7px 0;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #f9fafb;
+  letter-spacing: 0.12em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.teamCard:hover .teamName {
+  transform: translateX(3px);
 }
 
 .teamNpm {
-  margin: 0 0 8px 0;
-  font-size: 20px;
-  font-weight: 500;
-  color: #e5e7eb;
+  margin: 0 0 9px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #a78bfa;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s ease;
+}
+
+.teamCard:hover .teamNpm {
+  transform: translateX(3px);
 }
 
 .teamRole {
   margin: 0;
   font-size: 15px;
-  color: #e5e7eb;
+  line-height: 1.7;
+  color: #e0e7ff;
   max-width: 420px;
-  text-align: justify;       /* rata kiri–kanan */
-  text-justify: inter-word; 
+  text-align: justify;
+  text-justify: inter-word;
+  transition: transform 0.3s ease;
+}
+
+.teamCard:hover .teamRole {
+  transform: translateX(3px);
 }
 
 /* card genap: foto di kanan, teks di kiri */
@@ -365,7 +481,7 @@
 .teamCardEven .teamPhotoWrapper {
   order: 2;
   margin-left: 0;
-  margin-right: 60px;
+  margin-right: 28px;
 }
 
 .teamCardEven .teamInfo {
@@ -373,7 +489,13 @@
   text-align: right;
   align-items: flex-end;
   margin-left: 0;
-  margin-right: 60px;
+  margin-right: 28px;
+}
+
+.teamCardEven:hover .teamName,
+.teamCardEven:hover .teamNpm,
+.teamCardEven:hover .teamRole {
+  transform: translateX(-3px);
 }
 
 /* responsif */
