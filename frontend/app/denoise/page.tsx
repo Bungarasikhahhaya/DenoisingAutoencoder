@@ -178,7 +178,7 @@ export default function DenoisePage() {
                   Memproses...
                 </span>
               ) : (
-                "🚀 Upload & Denoise"
+                "Upload & Denoise"
               )}
             </button>
           </div>

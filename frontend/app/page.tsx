@@ -14,7 +14,7 @@ const members = [
   {
     name: "KHAIRUN NISA",
     npm: "230810701001O",
-    role: "peneliti dan pengembang model autoencoder, mencakup studi literatur, perancangan arsitektur jaringan, pelatihan model pada dataset wajah ber‑noise, serta analisis performa hasil denoising.",
+    role: "Bertanggung jawab sebagai peneliti dan pengembang model autoencoder, mencakup studi literatur, perancangan arsitektur jaringan, pelatihan model pada dataset wajah ber‑noise, serta analisis performa hasil denoising.",
     photo: "/team/nicun.png",
   },
   {
