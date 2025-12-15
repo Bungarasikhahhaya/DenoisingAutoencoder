@@ -1,4 +1,39 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap");
+/* Animasi bola cahaya orbit konstan untuk tombol Start */
+.submitButton-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.submitButton-orbit-ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 60%, transparent 80%);
+  filter: blur(8px);
+  box-shadow: 0 0 24px 6px white;
+  transform: rotate(0deg) translateX(54px) translateY(-50%);
+  animation: orbitCircle 4s linear infinite;
+}
+
+@keyframes orbitCircle {
+  0% {
+    transform: rotate(0deg) translateX(54px) translateY(-50%);
+  }
+  100% {
+    transform: rotate(360deg) translateX(54px) translateY(-50%);
+  }
+}
 
 .main {
   min-height: 100vh;
@@ -10,7 +45,13 @@
     sans-serif;
   position: relative;
   overflow: hidden;
-  background: #1f1337;
+  background: linear-gradient(
+    180deg,
+    #0a0812 0%,
+    #1f1337 40%,
+    #1f1337 70%,
+    #1a1140 100%
+  );
 }
 
 /* gradient blur */
@@ -178,13 +219,13 @@
   justify-content: center;
   padding: 13px 38px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 40%, #d946ef 75%, #ec4899 100%);
-  border: none;
-  color: #ffffff;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
+  box-shadow: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -192,64 +233,37 @@
   animation: fadeInUp 0.8s ease-out 0.8s both;
 }
 
-.startButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: left 0.6s;
-}
 
-.startButton:hover::before {
-  left: 100%;
-}
 
-.startButton:active {
-  transform: scale(0.96);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.6);
-}
 
-.startButtonHovered {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.5), 0 0 20px rgba(236, 72, 153, 0.3);
-}
+
+
 
 /* right */
-.right {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: relative;
-}
 
-/* floor shadow di bawah hero */
-.floorShadow {
+/* Video background hero full section */
+.heroBgVideoWrapper {
   position: absolute;
-  bottom: -20px;
-  width: 420px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(31, 19, 55, 0.98) 0%,
-    rgba(0, 62, 135, 0.85) 30%,
-    rgba(84, 0, 135, 0.7) 55%,
-    transparent 75%
-  );
-  filter: blur(28px);
-  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
 }
-
-.heroWrapper {
+.heroBgVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  filter: brightness(0.82) saturate(1.1) blur(0.5px);
+}
+.content {
   position: relative;
-  width: 560px;
-  height: 460px;
-  animation: breatheHero 7s ease-in-out infinite;
-  transform-origin: center bottom;
+  z-index: 10;
 }
 
 /* shadow/glow tambahan di belakang hero */
@@ -297,7 +311,7 @@
 /* OUR TEAM section */
 .teamSection {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   max-width: 1100px;
   width: 100%;
   margin: 50px auto 30px auto;

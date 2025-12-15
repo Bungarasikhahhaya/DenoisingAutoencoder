@@ -18,7 +18,7 @@ MODEL_PATH = os.path.join(
     "DenoisingAutoencoder-20251202T172437Z-1-001",
     "DenoisingAutoencoder",
     "saved_models",
-    "dataweights.133-0.00.keras",
+    "dataweights.106-0.00.keras",
 )
 
 IMG_SIZE = (256, 256)  # ganti sesuai input model

@@ -149,7 +149,7 @@ export default function DenoisePage() {
             {/* Preview input di sebelah kanan */}
             {file && (
               <div className={styles.inputPreviewBox}>
-                <h3 className={styles.inputPreviewTitle}>📷 Preview Input</h3>
+                <h3 className={styles.inputPreviewTitle}>Preview Input</h3>
                 <img
                   src={URL.createObjectURL(file)}
                   alt="input-preview"
@@ -159,7 +159,7 @@ export default function DenoisePage() {
                   onClick={() => document.getElementById("fileInput")?.click()}
                   className={styles.changeImageButton}
                 >
-                  🔄 Ganti Foto
+                  Ganti Foto
                 </button>
               </div>
             )}
@@ -199,7 +199,7 @@ export default function DenoisePage() {
                   <h3
                     className={`${styles.resultHeading} ${styles.resultHeadingInput}`}
                   >
-                    📷 Before (Noisy)
+                    Before (Noisy)
                   </h3>
                   <div className={styles.resultImageWrapper}>
                     <img
@@ -218,7 +218,7 @@ export default function DenoisePage() {
                   <h3
                     className={`${styles.resultHeading} ${styles.resultHeadingOutput}`}
                   >
-                    ✨ After (Denoised)
+                    After (Denoised)
                   </h3>
                   <div className={styles.resultImageWrapper}>
                     <img
@@ -231,7 +231,7 @@ export default function DenoisePage() {
                       download="denoised-image.png"
                       className={styles.downloadLink}
                     >
-                      💾 Download
+                      Download
                     </a>
                   </div>
                 </div>

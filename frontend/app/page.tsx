@@ -18,7 +18,7 @@ const members = [
     photo: "/team/nicun.png",
   },
   {
-    name: "ANISA RAMAHDANI",
+    name: "ANISA RAMADHANI",
     npm: "2308107010008",
     role: "Bertanggung jawab sebagai pengelola data, penguji sistem, perancang desain UI/UX, dan penulis dokumentasi, meliputi penyusunan dan pengelolaan dataset wajah, pengujian kualitas hasil denoising secara end‑to‑end, mendesain antarmuka pengguna yang menarik, serta penyusunan laporan proyek yang menjelaskan cara instalasi, penggunaan, dan ringkasan hasil penelitian.",
     photo: "/team/nisa.png",
@@ -70,32 +70,38 @@ export default function LandingPage() {
         <div className={styles.magentaBlur} />
       </div>
 
-      {/* Hero section */}
+      {/* Hero section dengan video background */}
+      <div className={styles.heroBgVideoWrapper}>
+        <video
+          className={styles.heroBgVideo}
+          src="/13160995_3840_2160_30fps.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/faceclean_hero.jpg"
+        />
+      </div>
       <div className={styles.content}>
-        {/* Kiri: teks */}
         <div className={styles.left}>
           <div className={styles.badge}>
             <span className={styles.badgeDot} />
             Face Denoising Autoencoder
           </div>
-
           <h1 className={`${styles.title} ${styles.bebasHeading}`}>
             Bersihkan noise wajah
             <br />
             untuk era Face AI yang lebih tajam
           </h1>
-
           <p className={styles.desc}>
             FaceClean membersihkan noise, artefak kompresi, dan grain pada citra
             wajah dengan Convolutional Autoencoder yang dilatih khusus dataset
             wajah. Ideal untuk face recognition, presensi, dan arsip digital.
           </p>
-
           <p className={styles.subDesc}>
             Klik Start, unggah foto wajah, dan lihat perbandingan sebelum dan
             sesudah secara instan.
           </p>
-
           <a
             href="/denoise"
             onMouseEnter={() => setIsHovered(true)}
@@ -105,22 +111,14 @@ export default function LandingPage() {
                 ? `${styles.startButton} ${styles.startButtonHovered}`
                 : styles.startButton
             }
+            style={{ position: "relative", overflow: "hidden" }}
           >
+            {/* Animasi bola cahaya orbit */}
+            <span className={styles["submitButton-orbit"]}>
+              <span className={styles["submitButton-orbit-ball"]}></span>
+            </span>
             Start
           </a>
-        </div>
-
-        {/* Kanan: hero */}
-        <div className={styles.right}>
-          <div className={styles.floorShadow} />
-          <div className={styles.heroWrapper}>
-            <Image
-              src="/hero1.png"
-              alt="FaceClean Hero"
-              fill
-              style={{ objectFit: "contain" }}
-            />
-          </div>
         </div>
       </div>
 
