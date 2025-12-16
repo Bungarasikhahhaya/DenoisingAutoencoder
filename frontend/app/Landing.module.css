@@ -34,7 +34,7 @@
   }
 }
 
-/* ====== BACKGROUND UTAMA DISAMAKAN DENGAN VIDEO ====== */
+/* ====== BACKGROUND UTAMA ====== */
 .main {
   min-height: 100vh;
   display: flex;
@@ -308,7 +308,7 @@
   }
 }
 
-/* OUR TEAM section */
+/* ===== OUR TEAM section ===== */
 .teamSection {
   position: relative;
   z-index: 20;
@@ -318,6 +318,26 @@
   padding: 0 8px;
 }
 
+/* BAR JUDUL YANG NYAMBUNG DENGAN VIDEO */
+.teamBar {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 40px 0 30px;
+  background:
+    radial-gradient(circle at 50% 0%,
+      rgba(0, 245, 255, 0.35) 0%,
+      rgba(0, 110, 255, 0.20) 20%,
+      rgba(5, 7, 22, 0.0) 45%
+    ),
+    linear-gradient(
+      180deg,
+      #050816 0%,
+      #050816 40%,
+      #050816 100%
+    );
+}
+
 /* header dengan text gradient */
 .teamHeader {
   text-align: center;
@@ -325,9 +345,10 @@
   animation: fadeInUp 0.8s ease-out;
 }
 
-/* garis pemisah di bawah judul – disamakan dengan neon line */
+/* garis neon di bawah judul */
 .teamDivider {
   width: 1120px;
+  max-width: 90vw;
   height: 3px;
   margin: 20px auto 0 auto;
   border-radius: 999px;
@@ -374,7 +395,7 @@
   gap: 18px;
 }
 
-/* base card: full screen section + ANIMASI SCROLL */
+/* base card */
 .teamCard {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -382,18 +403,16 @@
   align-items: center;
   padding: 22px 18px;
   border-radius: 18px;
-  background: rgba(15, 10, 32, 0.65);
+  background: rgba(8, 10, 26, 0.82);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(168, 85, 247, 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 
-  /* keadaan awal: sembunyi + turun */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
 }
 
-/* saat masuk viewport (JS akan tambah class ini) */
 .teamCard.visible {
   opacity: 1;
   transform: translateY(0);
@@ -528,6 +547,10 @@
 
   .title {
     font-size: 34px;
+  }
+
+  .teamBar {
+    padding: 30px 0 24px;
   }
 
   .teamCard,
