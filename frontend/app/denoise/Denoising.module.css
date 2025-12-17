@@ -1,3 +1,61 @@
+.downloadLink {
+  /* ...existing code... */
+  position: relative;
+  .downloadLink {
+    margin-top: 18px;
+    display: inline-block;
+    /* Gunakan style submitButton dan submitEnabled agar persis sama */
+    padding: 13px 38px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 18px;
+    background: transparent;
+    border: 2.5px solid #fff;
+    color: #fff;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 16px 0 #fff2;
+    cursor: pointer;
+    text-shadow: 0 1px 8px #000a;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .downloadLink:hover {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: 2.5px solid #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 24px 0 #fff3;
+  }
+  box-shadow: 0 4px 24px 0 #fff3;
+}
+.backToLandingButton {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 13px 38px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 18px;
+  background: transparent;
+  border: 2.5px solid #fff;
+  color: #fff;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 16px 0 #fff2;
+  cursor: pointer;
+  text-shadow: 0 1px 8px #000a;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.backToLandingButton:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 2.5px solid #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 24px 0 #fff3;
+}
 /* Animasi bola cahaya orbit, menyebar, berubah warna, dan looping untuk tombol submit */
 .submitButton-orbit {
   position: absolute;
@@ -285,22 +343,27 @@
 }
 
 .submitButton {
-  padding: 16px 48px;
+  padding: 13px 38px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 17px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 18px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  border: none;
+  background: transparent;
+  border: 2.5px solid #fff;
+  color: #fff;
   letter-spacing: 0.02em;
+  box-shadow: 0 2px 16px 0 #fff2;
+  cursor: pointer;
+  text-shadow: 0 1px 8px #000a;
 }
 
 .submitEnabled {
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 40%, #d946ef 75%, #ec4899 100%);
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #fff;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 16px 0 #fff2;
 }
 
 .submitEnabled::before {
@@ -319,8 +382,38 @@
 }
 
 .submitEnabled:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(168, 85, 247, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 2.5px solid #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 24px 0 #fff3;
+}
+/* Tombol download transparan dan kilatan putih */
+.downloadLink {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 11px 32px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 17px;
+  background: transparent;
+  border: 2.5px solid #fff;
+  color: #fff;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 16px 0 #fff2;
+  cursor: pointer;
+  text-shadow: 0 1px 8px #000a;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.downloadLink:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 2.5px solid #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 24px 0 #fff3;
 }
 
 .submitEnabled:active {
@@ -488,21 +581,23 @@
 }
 
 .downloadLink {
+  margin-top: 18px;
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 32px;
+  padding: 11px 32px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #d946ef 100%);
-  border: none;
-  color: #ffffff;
-  text-decoration: none;
   font-weight: 700;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-size: 17px;
+  background: transparent;
+  border: 2.5px solid #fff;
+  color: #fff;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 16px 0 #fff2;
+  cursor: pointer;
+  text-shadow: 0 1px 8px #000a;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
   position: relative;
   overflow: hidden;
-  letter-spacing: 0.01em;
 }
 
 .downloadLink::before {
@@ -514,10 +609,6 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
-}
-
-.downloadLink:hover::before {
-  left: 100%;
 }
 
 .downloadLink:hover {
