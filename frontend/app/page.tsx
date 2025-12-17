@@ -34,7 +34,6 @@ const members = [
 export default function LandingPage() {
   const [isHovered, setIsHovered] = useState(false);
 
-  // refs untuk setiap card team (pakai HTMLElement, karena elemen-nya <article>)
   const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -44,14 +43,12 @@ export default function LandingPage() {
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible); // tambahkan class visible
-            obs.unobserve(entry.target); // animasi sekali saja
+            entry.target.classList.add(styles.visible);
+            obs.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.2, // 20% card masuk viewport
-      }
+      { threshold: 0.2 }
     );
 
     cardRefs.current.forEach((el) => {
@@ -70,9 +67,8 @@ export default function LandingPage() {
         <div className={styles.magentaBlur} />
       </div>
 
-      {/* ========= HERO (DIBUNGKUS heroSection) ========= */}
+      {/* ========== HERO: video hanya di section ini ========== */}
       <section className={styles.heroSection}>
-        {/* Video background hanya untuk hero */}
         <div className={styles.heroBgVideoWrapper}>
           <video
             className={styles.heroBgVideo}
@@ -117,7 +113,6 @@ export default function LandingPage() {
               }
               style={{ position: "relative", overflow: "hidden" }}
             >
-              {/* Animasi bola cahaya orbit */}
               <span className={styles["submitButton-orbit"]}>
                 <span className={styles["submitButton-orbit-ball"]}></span>
               </span>
@@ -126,7 +121,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      {/* ========= END HERO ========= */}
+      {/* ========== END HERO ========== */}
 
       {/* OUR TEAM section */}
       <section className={styles.teamSection}>
