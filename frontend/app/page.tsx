@@ -70,57 +70,63 @@ export default function LandingPage() {
         <div className={styles.magentaBlur} />
       </div>
 
-      {/* Hero section dengan video background */}
-      <div className={styles.heroBgVideoWrapper}>
-        <video
-          className={styles.heroBgVideo}
-          src="/13160995_3840_2160_30fps.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/faceclean_hero.jpg"
-        />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.left}>
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            Face Denoising Autoencoder
-          </div>
-          <h1 className={`${styles.title} ${styles.bebasHeading}`}>
-            Bersihkan noise wajah
-            <br />
-            untuk era Face AI yang lebih tajam
-          </h1>
-          <p className={styles.desc}>
-            FaceClean membersihkan noise, artefak kompresi, dan grain pada citra
-            wajah dengan Convolutional Autoencoder yang dilatih khusus dataset
-            wajah. Ideal untuk face recognition, presensi, dan arsip digital.
-          </p>
-          <p className={styles.subDesc}>
-            Klik Start, unggah foto wajah, dan lihat perbandingan sebelum dan
-            sesudah secara instan.
-          </p>
-          <a
-            href="/denoise"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className={
-              isHovered
-                ? `${styles.startButton} ${styles.startButtonHovered}`
-                : styles.startButton
-            }
-            style={{ position: "relative", overflow: "hidden" }}
-          >
-            {/* Animasi bola cahaya orbit */}
-            <span className={styles["submitButton-orbit"]}>
-              <span className={styles["submitButton-orbit-ball"]}></span>
-            </span>
-            Start
-          </a>
+      {/* ========= HERO (DIBUNGKUS heroSection) ========= */}
+      <section className={styles.heroSection}>
+        {/* Video background hanya untuk hero */}
+        <div className={styles.heroBgVideoWrapper}>
+          <video
+            className={styles.heroBgVideo}
+            src="/13160995_3840_2160_30fps.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/faceclean_hero.jpg"
+          />
         </div>
-      </div>
+
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <div className={styles.badge}>
+              <span className={styles.badgeDot} />
+              Face Denoising Autoencoder
+            </div>
+            <h1 className={`${styles.title} ${styles.bebasHeading}`}>
+              Bersihkan noise wajah
+              <br />
+              untuk era Face AI yang lebih tajam
+            </h1>
+            <p className={styles.desc}>
+              FaceClean membersihkan noise, artefak kompresi, dan grain pada
+              citra wajah dengan Convolutional Autoencoder yang dilatih khusus
+              dataset wajah. Ideal untuk face recognition, presensi, dan arsip
+              digital.
+            </p>
+            <p className={styles.subDesc}>
+              Klik Start, unggah foto wajah, dan lihat perbandingan sebelum dan
+              sesudah secara instan.
+            </p>
+            <a
+              href="/denoise"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className={
+                isHovered
+                  ? `${styles.startButton} ${styles.startButtonHovered}`
+                  : styles.startButton
+              }
+              style={{ position: "relative", overflow: "hidden" }}
+            >
+              {/* Animasi bola cahaya orbit */}
+              <span className={styles["submitButton-orbit"]}>
+                <span className={styles["submitButton-orbit-ball"]}></span>
+              </span>
+              Start
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* ========= END HERO ========= */}
 
       {/* OUR TEAM section */}
       <section className={styles.teamSection}>

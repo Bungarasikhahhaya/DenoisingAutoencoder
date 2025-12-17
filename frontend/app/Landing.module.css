@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap");
 
+
 /* === GLOBAL FONT & BACKGROUND (FULL HITAM) === */
 html,
 body {
@@ -21,6 +22,7 @@ body {
   background-attachment: fixed;
   color: #fff;
 }
+
 
 /* Animasi bola cahaya orbit konstan untuk tombol Start */
 .submitButton-orbit {
@@ -62,6 +64,7 @@ body {
   }
 }
 
+
 /* ====== CONTAINER UTAMA (TRANSPARAN, IKUT BODY) ====== */
 .main {
   min-height: 100vh;
@@ -73,6 +76,7 @@ body {
   overflow: hidden;
   background: transparent;
 }
+
 
 /* dekor blur dimatikan (biar full gelap) */
 .gradientWrapper {
@@ -91,12 +95,22 @@ body {
   display: none;
 }
 
+
+/* ===== HERO SECTION WRAPPER – BARU ===== */
+.heroSection {
+  position: relative;
+  width: 100%;
+  padding: 80px 0 60px; /* tinggi hero = konten + padding */
+  overflow: hidden;
+}
+
 /* layout hero */
 .content {
   position: relative;
   z-index: 10;
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   display: flex;
   gap: 56px;
   align-items: center;
@@ -233,32 +247,31 @@ body {
   animation: fadeInUp 0.8s ease-out 0.8s both;
 }
 
-/* Video background hero full section */
+
+/* Video background hero – DIUBAH SUPAYA IKUT HERO SAJA */
 .heroBgVideoWrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   z-index: 1;
   overflow: hidden;
 }
 
 .heroBgVideo {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* isi area hero, jaga rasio video */
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
   filter: brightness(0.82) saturate(1.1) blur(0.5px);
 }
 
+/* konten hero di atas video */
 .content {
   position: relative;
   z-index: 10;
 }
+
 
 /* shadow/glow tambahan di belakang hero */
 .heroWrapper::before {
@@ -301,13 +314,14 @@ body {
   }
 }
 
+
 /* ===== OUR TEAM section ===== */
 .teamSection {
   position: relative;
   z-index: 20;
   max-width: 1100px;
   width: 100%;
-  margin: 50px auto 30px auto;
+  margin: 40px auto 30px auto; /* sedikit jarak dari hero */
   padding: 0 8px;
   background: transparent;
 }
@@ -392,12 +406,10 @@ body {
   padding: 22px 18px;
   border-radius: 18px;
 
-  /* warna kotak: panel gelap (seperti awal) */
   background: rgba(8, 10, 26, 0.9);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(168, 85, 247, 0.25);
 
-  /* shadow cyan #30EEFF tipis */
   box-shadow:
     0 0 10px rgba(48, 238, 255, 0.22),
     0 0 18px rgba(0, 0, 0, 0.45);
@@ -455,6 +467,7 @@ body {
 .teamPhotoWrapper:hover .teamPhoto {
   transform: scale(1.06);
 }
+
 
 /* teks */
 .teamInfo {
@@ -534,16 +547,12 @@ body {
   transform: translateX(-3px);
 }
 
+
 /* responsif */
 @media (max-width: 900px) {
   .content {
     flex-direction: column-reverse;
     gap: 32px;
-  }
-
-  .heroWrapper {
-    width: 360px;
-    height: 300px;
   }
 
   .title {
