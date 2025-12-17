@@ -28,6 +28,9 @@ def preprocess_image(file_bytes: bytes) -> np.ndarray:
     # Baca gambar dari bytes
     image = Image.open(io.BytesIO(file_bytes))
 
+    # Simpan ukuran asli
+    original_size = image.size  # (width, height)
+
     # Konversi mode
     if IS_GRAY:
         image = image.convert("L")   # grayscale
@@ -42,7 +45,7 @@ def preprocess_image(file_bytes: bytes) -> np.ndarray:
     if IS_GRAY and array.ndim == 2:
         array = np.expand_dims(array, axis=-1)  # (h,w,1)
     array = np.expand_dims(array, axis=0)       # (1,h,w,c)
-    return array
+    return array, original_size
 
 
 def array_to_base64(img_array: np.ndarray) -> str:
@@ -74,7 +77,7 @@ def denoise():
     img_bytes = file.read()
 
     # Preprocess gambar
-    x = preprocess_image(img_bytes)
+    x, original_size = preprocess_image(img_bytes)
 
     # Prediksi dengan autoencoder
     denoised = model.predict(x)[0]  # keluaran: (h,w,c) atau (h,w,1)
@@ -83,8 +86,22 @@ def denoise():
     if denoised.ndim == 3 and denoised.shape[-1] == 1:
         denoised = denoised.squeeze(-1)
 
+
+    # Konversi array ke gambar PIL dengan mode yang sesuai
+    arr_uint8 = np.clip(denoised * 255.0, 0, 255).astype("uint8")
+    if IS_GRAY:
+        pil_img = Image.fromarray(arr_uint8, mode="L")
+    else:
+        pil_img = Image.fromarray(arr_uint8, mode="RGB")
+
+    # Resize ke ukuran asli
+    pil_img = pil_img.resize(original_size)
+
+    # Kembali ke array float [0,1] untuk base64
+    arr_resized = np.asarray(pil_img).astype(np.float32) / 255.0
+
     # Konversi ke base64
-    b64 = array_to_base64(denoised)
+    b64 = array_to_base64(arr_resized)
 
     return jsonify({"image_base64": b64})
 

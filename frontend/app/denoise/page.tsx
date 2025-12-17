@@ -93,6 +93,13 @@ export default function DenoisePage() {
         <div className={styles.bgMagenta} />
       </div>
 
+      {/* Tombol kembali ke landing */}
+      <div style={{ position: "absolute", top: 24, left: 32, zIndex: 20 }}>
+        <a href="/" className={`${styles.backToLandingButton} ${styles.whiteFlash}`}>
+          ← Kembali ke Landing
+        </a>
+      </div>
+
       {/* Content */}
       <div className={styles.content}>
         {/* Header */}
